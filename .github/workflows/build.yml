@@ -21,7 +21,9 @@ jobs:
         with:
           distribution: "temurin"
           java-version: ${{ matrix.java }}
-
+      - name: Set outputs
+        id: vars
+        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
       - name: Grant execute permission
         run: chmod +x ./gradlew
       - name: Build with Gradle
