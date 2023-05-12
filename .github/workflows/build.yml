@@ -23,7 +23,7 @@ jobs:
           java-version: ${{ matrix.java }}
       - name: Set outputs
         id: vars
-        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+        run: echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
       - name: Grant execute permission
         run: chmod +x ./gradlew
       - name: Build with Gradle
